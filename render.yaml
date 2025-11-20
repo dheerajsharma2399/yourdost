@@ -2,7 +2,7 @@ services:
   # Backend Service
   - type: web
     name: yourdost-backend
-    env: node
+    runtime: node
     rootDir: backend
     buildCommand: "npm install"
     startCommand: "npm start"
