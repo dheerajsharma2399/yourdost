@@ -1,0 +1,22 @@
+services:
+  # Backend Service
+  - type: web
+    name: yourdost-backend
+    env: node
+    rootDir: backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    healthCheckPath: /todos
+
+  # Frontend Service
+  - type: static
+    name: yourdost-frontend
+    rootDir: frontend
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: yourdost-backend
+          property: url
