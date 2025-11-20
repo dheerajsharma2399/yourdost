@@ -9,7 +9,7 @@ services:
     healthCheckPath: /todos
 
   # Frontend Service
-  - type: static
+  - type: static_site
     name: yourdost-frontend
     rootDir: frontend
     buildCommand: "npm install && npm run build"
